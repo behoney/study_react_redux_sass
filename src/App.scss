@@ -1,4 +1,4 @@
-$primary: #000000;
+$primary: #f0f0f0;
 
 .App {
   text-align: center;
@@ -27,13 +27,22 @@ $primary: #000000;
 }
 
 .App-link {
+  
   color: #61dafb;
+  
+  transition: all 1s ease;
+  &:hover {
+    background-color: azure;
+    font-size: large;
+    transition-delay: 1s;
+  }
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
