@@ -6,7 +6,7 @@
 }
 #hover{
     transition: all 1s;
-    &:hover{
+    &:hover, &:focus{
         width: 200px;
         opacity: 0.5;
     }

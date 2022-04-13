@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./CH1.scss"
 
-const Block = (props) => {
-  return (
-    <div className='block' {...props}></div>)
-}
-
 function CH1() {
-  console.log("hi");
+
+  const ref = useRef();
+  useEffect(() => {
+    ref.current.focus();
+    setTimeout(() => {
+      ref.current.id = "hover"
+    }, 500)
+  }, []);
   return (
     <>
-      <Block />
-      <Block style={{
-        backgroundColor: "green"
-      }} />
-      <Block id="hover" style={{
-        backgroundColor: "yellow"
-      }} />
+      <input className='block' ref={ref} />
     </>
   )
 }
