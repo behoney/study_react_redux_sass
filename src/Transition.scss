@@ -6,12 +6,43 @@
     text-align: center;
     color: #fff;
     padding-top: 24px;
-    
     box-sizing: border-box;
 
-    transition: background-color 0.2s ease;
+    transition: all 1.2s ease;
 
     &:hover {
         background-color: red;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.transition-2 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+    text-align: center;
+    color: #fff;
+    padding-top: 24px;
+    box-sizing: border-box;
+
+    transition: all 1.2s ease;
+
+    &:hover {
+        background-color: red;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+div.container {
+    margin: 24px auto;
+
+    div {
+        margin: 36px;
+        display: inline-block;
+        background-color: gray;
+
     }
 }
