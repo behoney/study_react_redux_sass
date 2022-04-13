@@ -1,0 +1,13 @@
+.block{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+}
+#hover{
+    transition: all 1s;
+    &:hover{
+        width: 200px;
+        opacity: 0.5;
+    }
+}

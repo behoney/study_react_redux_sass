@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import "./CH1.scss"
 
-const Child = () => {
-  useEffect(() => {
-    console.log(1);
-    return () => console.log(2);
-  })
-  return <>child~</>
+const Block = (props) => {
+  return (
+    <div className='block' {...props}></div>)
 }
+
 function CH1() {
-
-  useEffect(() => {
-    console.log(3);
-    return () => console.log(4);
-
-  }, [])
-
-  const [show, setshow] = useState(false)
-
-  const clickHandler = () => {
-    setshow(prev => !prev)
-  }
-
+  console.log("hi");
   return (
     <>
-      <div>
-        <button onClick={clickHandler}>search</button>
-        <input type="text" placeholder='' />
-        {show ? <p>result</p> : <Child />}
-
-      </div>
+      <Block />
+      <Block style={{
+        backgroundColor: "green"
+      }} />
+      <Block id="hover" style={{
+        backgroundColor: "yellow"
+      }} />
     </>
   )
 }
