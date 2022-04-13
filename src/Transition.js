@@ -13,7 +13,7 @@ function Transition() {
 const Ex1 = () => {
     return (<>
         <div className='transition-1'>
-
+            transition basic
         </div>
     </>)
 }
