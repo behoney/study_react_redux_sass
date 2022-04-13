@@ -3,16 +3,21 @@ import "./CH1.scss"
 
 function CH1() {
 
-  const ref = useRef();
-  useEffect(() => {
-    ref.current.focus();
-    setTimeout(() => {
-      ref.current.id = "hover"
-    }, 500)
-  }, []);
+  const handleEvent = (e) => {
+    e.preventDefault();
+    console.dir(e.target.elements);
+  }
+
   return (
     <>
-      <input className='block' ref={ref} />
+      <form action="/test" onSubmit={handleEvent}>
+        <label htmlFor="name">name</label>
+        <input type="text" name='name' />
+        <label htmlFor="other">other</label>
+        <input type="text" name='other' />
+
+        <input id='submit' type="submit" />
+      </form>
     </>
   )
 }
