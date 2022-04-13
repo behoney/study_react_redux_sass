@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./CH1.scss"
 
+const Child = () => {
+  throw new Error("err");
+  return <div>child!</div>
+}
+
 function CH1() {
 
   const handleEvent = (e) => {
@@ -22,6 +27,7 @@ function CH1() {
         <input id='submit' type="submit" disabled={num.length < 5} />
       </form>
       <p>{num}</p>
+      <Child />
     </>
   )
 }
