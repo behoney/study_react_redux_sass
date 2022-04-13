@@ -5,19 +5,23 @@ function CH1() {
 
   const handleEvent = (e) => {
     e.preventDefault();
-    console.dir(e.target.elements);
+    console.dir(e.target.elements.phone.value);
+  }
+
+  const [num, setNum] = useState("")
+  const handleInput = (e) => {
+    setNum(e.target.value)
+    console.log(num);
   }
 
   return (
     <>
       <form action="/test" onSubmit={handleEvent}>
-        <label htmlFor="name">name</label>
-        <input type="text" name='name' />
-        <label htmlFor="other">other</label>
-        <input type="text" name='other' />
-
-        <input id='submit' type="submit" />
+        <label htmlFor="phone">phone</label>
+        <input type="text" name='phone' onChange={handleInput} />
+        <input id='submit' type="submit" disabled={num.length < 5} />
       </form>
+      <p>{num}</p>
     </>
   )
 }
