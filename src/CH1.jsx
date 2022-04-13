@@ -20,3 +20,9 @@ const Number = ({ number, select }) => {
 
   return number % 2 === 0 ? <h1>{number}</h1> : select ? <h3>selected {number}</h3> : <h5>{number}</h5>
 }
+
+
+
+
+// 재조정 (Reconciliation)
+// https://ko.reactjs.org/docs/reconciliation.html
