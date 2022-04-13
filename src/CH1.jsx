@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from 'react'
 
+const Child = () => {
+  useEffect(() => {
+    console.log(1);
+    return () => console.log(2);
+  })
+  return <>child~</>
+}
 function CH1() {
 
-  const [value, setValue] = useState(0);
-  let val = value;
-
   useEffect(() => {
-    console.log("value from local", window.localStorage.getItem('value'));
-  }, [val])
+    console.log(3);
+    return () => console.log(4);
 
-  useEffect(() => {
-    console.log("value from deps", value);
-    val = value;
-  }, [value, val])
+  }, [])
 
-  const inc = () => {
-    setValue(value + 1);
-    window.localStorage.setItem("value", value);
+  const [show, setshow] = useState(false)
+
+  const clickHandler = () => {
+    setshow(prev => !prev)
   }
 
   return (
     <>
-      <button onClick={() => inc()}>test</button>
-      <p>
-        {(value + val) / 2}
-      </p>
+      <div>
+        <button onClick={clickHandler}>search</button>
+        <input type="text" placeholder='' />
+        {show ? <p>result</p> : <Child />}
+
+      </div>
     </>
   )
 }
