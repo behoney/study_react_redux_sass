@@ -1,0 +1,10 @@
+.transition-1 {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+    transition: background-color 0.2s ease;
+    &:hover {
+        background-color: red;
+    }
+}
