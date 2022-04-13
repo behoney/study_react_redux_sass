@@ -42,7 +42,7 @@ const Ex2 = () => {
                 Controlling ani1
             </div>
             <div className='block' id="actionArea" onMouseOver={() => over()} onMouseLeave={() => leave()}>
-                hover to stop
+                hover to play
             </div>
         </>
     )
