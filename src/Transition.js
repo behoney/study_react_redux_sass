@@ -7,6 +7,7 @@ function Transition() {
             <div>1. Transition</div>
             <Ex1 />
             <Ex2 />
+            <Ex3 />
         </div>
     )
 }
@@ -33,6 +34,21 @@ const Ex2 = () => {
             <Block delay="0.5"></Block>
             <Block delay="1"></Block>
             <Block delay="2"></Block>
+        </div>)
+}
+
+const Ex3 = () => {
+    const Block = ({ duration }) => {
+        const wait = duration.toString() + "s"
+        return (<div className='transition-2' style={{ transitionDuration: wait }}>
+            transition duration: {wait}
+        </div>)
+    }
+    return (
+        <div className="container">
+            <Block duration="0.5"></Block>
+            <Block duration="1"></Block>
+            <Block duration="2"></Block>
         </div>)
 }
 

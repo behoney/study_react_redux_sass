@@ -1,0 +1,51 @@
+.transform-container {
+    display: flex;
+    width: 100vw;
+}
+
+.transform-1 {
+    margin: 24px auto;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+
+    text-align: center;
+    color: #fff;
+    padding-top: 24px;
+    box-sizing: border-box;
+
+    transition: all 0.5s ease;
+
+}
+
+#scale {
+    &:hover {
+        transform: scale(2);
+    }
+}
+
+#scale-origin {
+    transform-origin: left top;
+
+    &:hover {
+        transform: scale(2);
+    }
+}
+
+#rotate {
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+#translate {
+    &:hover {
+        transform: translate(50px, 50px);
+    }
+}
+
+#skew {
+    &:hover {
+        transform: skew(30deg, -30deg);
+    }
+}

@@ -18,6 +18,12 @@
 }
 
 .transition-2 {
+
+
+    margin: 36px;
+    display: inline-block;
+    background-color: gray;
+
     width: 100px;
     height: 100px;
     background-color: blue;
@@ -38,11 +44,4 @@
 
 div.container {
     margin: 24px auto;
-
-    div {
-        margin: 36px;
-        display: inline-block;
-        background-color: gray;
-
-    }
 }
