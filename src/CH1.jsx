@@ -1,24 +1,19 @@
 import React from 'react'
 
 function CH1() {
-  const text = "hi,,,,,";
 
-  const Template = ({ title, detail, children }) => (
-    <div>
-      <h1>{title}</h1>
-      <h3>{detail}</h3>
-      {children}
-    </div>
-  )
+  const Number = ({ number, select }) => {
 
-  const Test1_5 = ()=><Template title="test1_5" detail={"detail....1_5"}></Template>
+    return number % 2 === 0 ? <h1>{number}</h1> : select ? <h3>selected {number}</h3> : <h5>{number}</h5>
+  }
 
   return (
     <>
-      <Template title="title,," detail="detail...">
-        <span>span children</span>
-        <Test1_5></Test1_5>
-      </Template>
+      {
+        [1, 2, 3, 4, 5, 6, 7, 8, 9].map(num =>
+          <Number number={num} select={num === 1}></Number>
+        )
+      }
     </>
   )
 }
