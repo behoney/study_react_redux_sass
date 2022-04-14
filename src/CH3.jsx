@@ -1,6 +1,68 @@
 import React, { useState, useEffect, useRef, useReducer } from 'react'
 import "./CH3.scss"
 
+
+
+function CH3() {
+    return (<>
+        <Dialog msg="my message"></Dialog>
+        <Dialog msg={messageDiv}></Dialog>
+    </>)
+}
+
+
+
+export default CH3
+
+
+const messageDiv = (<div
+    onClick={() => {
+        console.log("hi");
+    }}
+    style={{
+        textAlign: "center",
+    }}>
+    hello messageDiv</div>)
+
+
+const Dialog = (props) => {
+    const [open, setOpen] = useState(false)
+    return (<>
+        <button onClick={
+            () => setOpen(true)
+        }>
+            open
+        </button>
+        {open && <div style={{
+            backgroundColor: "#888",
+            color: "#fff"
+        }}>
+            {props.msg}
+            <button onClick={
+                () => setOpen(!open)
+            }>
+                close
+            </button>
+        </div>}
+    </>)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Reducer = () => {
     const init = { count: 0, id: 1 };
 
@@ -27,13 +89,3 @@ const Reducer = () => {
         {state.count}
     </>)
 }
-
-function CH3() {
-    return (<>
-        <Reducer></Reducer>
-
-    </>)
-}
-
-
-export default CH3
