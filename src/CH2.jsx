@@ -7,13 +7,25 @@ const Welcome = (props) => {
     </div>)
 }
 
+const Clock = () => {
+    const [clock, setclock] = useState(new Date())
+    useEffect(() => {
+        const itv = setInterval(() => {
+            setclock(new Date())
+        }, 1000)
+        return () => {
+            clearInterval(itv);
+        }
+    }, [])
+    return (<div>
+        {clock.toLocaleString()}
+    </div>)
+}
+
 function CH2() {
 
     return (<>
-        <Welcome name="A"></Welcome>
-        <Welcome name="B"></Welcome>
-        <Welcome name="C"></Welcome>
-        <Welcome name="D"></Welcome>
+        <Clock />
     </>)
 }
 
