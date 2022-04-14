@@ -1,39 +1,71 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./CH1.scss"
 
-const todo = [
-  { id: 1, value: "value1" },
-  { id: 2, value: "value2" },
-  { id: 3, value: "value3" },
-  { id: 4, value: "value4" }
-]
-
 function CH1() {
-  const [item, setItem] = useState(todo)
-
-  const handleDoneBtn = (id) => {
-    setItem(item.filter(e => e.id != id));
-    console.log(item);
+  const [id, setId] = useState("")
+  const handleID = (e) => {
+    console.log(id);
+    setId(e.target.value)
   }
+
+  const [pw, setPW] = useState("")
+  const handlePW = (e) => {
+    console.log(pw);
+    setPW(e.target.value)
+  }
+
+
+  const handleLoginClick = (e) => {
+    console.warn(id, pw);
+    return;
+  }
+
+  // why error?
+  // const ID = ({ handleID }) => {
+  //   return (<>
+  //     <label>ID: </label>
+  //     <input onChange={handleID} type="text"></input>
+  //   </>)
+  // }
+  // const PW = ({ handlePW }) => {
+  //   return (<>
+  //     <label>PW: </label>
+  //     <input onChange={handlePW} type="password"></input>
+  //   </>)
+  // }
+  
   return (
     <>
       <div>
-        {item.map(e => {
-          return (<div key={e.id}>
-            <span >{e.value}</span>
-            <button onClick={() => handleDoneBtn(e.id)}>Done</button>
-          </div>)
-        })}
+        <div>
+          <ID handleID={handleID}></ID>
+        </div>
+        <div>
+          <PW handlePW={handlePW}></PW>
+        </div>
+        <button onClick={handleLoginClick} disabled={!(id.length > 0 && pw.length > 0)} > LOGIN </button>
       </div>
 
-      <button onClick={() => {
-        setItem(todo);
-      }}>
-        Restore
-      </button>
     </>
 
   )
 }
+
+
+const ID = ({ handleID }) => {
+  return (<>
+    <label>ID: </label>
+    <input onChange={handleID} type="text"></input>
+  </>)
+}
+const PW = ({ handlePW }) => {
+  return (<>
+    <label>PW: </label>
+    <input onChange={handlePW} type="password"></input>
+  </>)
+}
+
+
+
 
 export default CH1
