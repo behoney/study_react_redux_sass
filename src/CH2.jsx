@@ -1,6 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./CH2.scss"
 
+
+function CH2() {
+    return (<>
+
+    </>)
+}
+
+
+export default CH2
+
 const Welcome = (props) => {
     return (<div>
         hello {props.name}
@@ -23,7 +33,7 @@ const Clock = ({ id }) => {
     </div>)
 }
 
-function CH2() {
+const Bubble = () => {
     const clickP = () => { console.log(1); }
     const clickC = () => { console.log(2); }
     const clickCP = () => { console.log(3); }
@@ -42,5 +52,3 @@ function CH2() {
         </div>
     </>)
 }
-
-export default CH2

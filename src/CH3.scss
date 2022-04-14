@@ -1,0 +1,27 @@
+.block{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+}
+#hover{
+    transition: all 1s;
+    &:hover, &:focus{
+        width: 200px;
+        opacity: 0.5;
+    }
+}
+
+* {
+    padding: 16px;
+    margin:8px;
+    transition: all 0.5s linear;
+}
+
+form input{
+    display: block;
+}
+
+#submit{
+    margin-left: 200px;
+}
