@@ -9,10 +9,7 @@ import Transition from './Transition';
 function App() {
   return (
     <div className="App">
-      <Spinner />
-      <Keyframe />
-      <Transform />
-      <Transition />
+      <CH1 />
     </div>
   );
 }

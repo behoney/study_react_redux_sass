@@ -1,34 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./CH1.scss"
 
-const Child = () => {
-  throw new Error("err");
-  return <div>child!</div>
-}
+const todo = [
+  { id: 1, value: "value1" },
+  { id: 2, value: "value2" },
+  { id: 3, value: "value3" },
+  { id: 4, value: "value4" }
+]
 
 function CH1() {
+  const [item, setItem] = useState(todo)
 
-  const handleEvent = (e) => {
-    e.preventDefault();
-    console.dir(e.target.elements.phone.value);
+  const handleDoneBtn = (id) => {
+    setItem(item.filter(e => e.id != id));
+    console.log(item);
   }
-
-  const [num, setNum] = useState("")
-  const handleInput = (e) => {
-    setNum(e.target.value)
-    console.log(num);
-  }
-
   return (
     <>
-      <form action="/test" onSubmit={handleEvent}>
-        <label htmlFor="phone">phone</label>
-        <input type="text" name='phone' onChange={handleInput} />
-        <input id='submit' type="submit" disabled={num.length < 5} />
-      </form>
-      <p>{num}</p>
-      <Child />
+      <div>
+        {item.map(e => {
+          return (<div key={e.id}>
+            <span >{e.value}</span>
+            <button onClick={() => handleDoneBtn(e.id)}>Done</button>
+          </div>)
+        })}
+      </div>
+
+      <button onClick={() => {
+        setItem(todo);
+      }}>
+        Restore
+      </button>
     </>
+
   )
 }
 
