@@ -19,10 +19,14 @@ function CH1() {
       {
         data.map(e => {
           return (
-            <div>
+            <div key={e.sha}>
               <span>
                 {e.author.login}
               </span>
+              <button
+                onClick={() => {
+                  setdata(data.filter(d => d.sha !== e.sha))
+                }}>remove</button>
             </div>
           )
         })
