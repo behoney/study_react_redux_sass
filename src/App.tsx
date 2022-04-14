@@ -7,11 +7,13 @@ import Keyframe from './Keyframe';
 import Spinner from './Spinner';
 import Transform from './Transform';
 import Transition from './Transition';
+import WebAnimations from './WebAnimations';
 
 function App() {
   return (
     <div className="App">
-      <CH3 />
+      {/* <CH3 /> */}
+      <WebAnimations></WebAnimations>
     </div>
   );
 }
