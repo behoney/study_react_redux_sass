@@ -1,51 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./CH1.scss"
 
+const apiEndpoint = "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits";
 function CH1() {
-  const [id, setId] = useState("")
-  const handleID = (e) => {
-    console.log(id);
-    setId(e.target.value)
-  }
 
-  const [pw, setPW] = useState("")
-  const handlePW = (e) => {
-    console.log(pw);
-    setPW(e.target.value)
-  }
+  const [data, setdata] = useState([])
+  useEffect(() => {
+    fetch(apiEndpoint).then(res => res.json())
+      .then(e => {
+        console.log(e);
+        setdata(e);
+      })
+  }, [])
 
-
-  const handleLoginClick = (e) => {
-    console.warn(id, pw);
-    return;
-  }
-
-  // why error?
-  // const ID = ({ handleID }) => {
-  //   return (<>
-  //     <label>ID: </label>
-  //     <input onChange={handleID} type="text"></input>
-  //   </>)
-  // }
-  // const PW = ({ handlePW }) => {
-  //   return (<>
-  //     <label>PW: </label>
-  //     <input onChange={handlePW} type="password"></input>
-  //   </>)
-  // }
-  
   return (
     <>
-      <div>
-        <div>
-          <ID handleID={handleID}></ID>
-        </div>
-        <div>
-          <PW handlePW={handlePW}></PW>
-        </div>
-        <button onClick={handleLoginClick} disabled={!(id.length > 0 && pw.length > 0)} > LOGIN </button>
-      </div>
-
+      <p>loading</p>
+      {
+        data.map(e => {
+          return (
+            <div>
+              <span>
+                {e.author.login}
+              </span>
+            </div>
+          )
+        })
+      }
     </>
 
   )
