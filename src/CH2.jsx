@@ -7,11 +7,12 @@ const Welcome = (props) => {
     </div>)
 }
 
-const Clock = () => {
+const Clock = ({ id }) => {
     const [clock, setclock] = useState(new Date())
     useEffect(() => {
         const itv = setInterval(() => {
             setclock(new Date())
+            console.log(id);
         }, 1000)
         return () => {
             clearInterval(itv);
@@ -25,7 +26,10 @@ const Clock = () => {
 function CH2() {
 
     return (<>
-        <Clock />
+        <Clock id="1" />
+        <Clock id="2" />
+        <Clock id="3" />
+        <Clock id="4" />
     </>)
 }
 
