@@ -24,12 +24,22 @@ const Clock = ({ id }) => {
 }
 
 function CH2() {
+    const clickP = () => { console.log(1); }
+    const clickC = () => { console.log(2); }
+    const clickCP = () => { console.log(3); }
+    const clickCC = (e) => {
+        e.stopPropagation();
+        console.log(4);
+    }
 
     return (<>
-        <Clock id="1" />
-        <Clock id="2" />
-        <Clock id="3" />
-        <Clock id="4" />
+        <div onClick={clickP} onClickCapture={clickCP} style={{ backgroundColor: "#88888888" }}>
+            hi
+            <div onClick={clickC} onClickCapture={clickCC} style={{ backgroundColor: "#febe9588" }}>
+                hello
+
+            </div>
+        </div>
     </>)
 }
 
