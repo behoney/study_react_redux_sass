@@ -9,6 +9,7 @@ import Keyframe from './Keyframe';
 import Spinner from './Spinner';
 import Transform from './Transform';
 import Transition from './Transition';
+import WebAnimations from './WebAnimations';
 
 function App() {
   return (
