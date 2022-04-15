@@ -1,3 +1,5 @@
+// part2
+
 import React, { useState, useEffect, useRef, useReducer, useMemo } from 'react'
 import "./CH4.scss"
 import moment from 'moment-timezone'
@@ -7,13 +9,22 @@ import { add, compareAsc, format } from "date-fns"
 function CH4() {
     return (<>
         {/* <MomentExample /> */}
-        <FnsExample />
+        {/* <FnsExample /> */}
+        {/* <Sass></Sass> */}
     </>)
 }
 
-
-
 export default CH4;
+
+
+
+// const Sass = () => {
+//     return (<div className='sidebar gray pulse'>
+//         hi
+//         <button className='button'>button</button>
+//     </div>)
+
+// }
 
 const FnsExample = () => {
 
