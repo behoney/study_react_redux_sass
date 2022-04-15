@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <CH5 />
-      <CH5_Friend></CH5_Friend>
+      {/* <CH5_Friend></CH5_Friend> */}
     </div>
   );
 }
