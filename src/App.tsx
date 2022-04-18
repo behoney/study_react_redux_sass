@@ -15,9 +15,7 @@ import WebAnimations from './WebAnimations';
 
 import test from "./ts/class"
 
-console.log(
-  test()
-);
+test()
 
 
 function App() {
