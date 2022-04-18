@@ -19,20 +19,34 @@ interface User1 {
 }
 
 class LocalDB<T> {
-    constructor(private localStroageKey: string) {
+    constructor(private localStorageKey: string) {
     }
     add(item: T) {
-        window.localStorage.setItem(this.localStroageKey, JSON.stringify(item));
+        window.localStorage.setItem(this.localStorageKey, JSON.stringify(item));
     }
     get(): T | null {
-        const data = window.localStorage.getItem(this.localStroageKey)
+        const data = window.localStorage.getItem(this.localStorageKey)
         return data ? JSON.parse(data) as T : null;
     }
 }
 
+class DB<T extends (User | string | number)>{
+    constructor(public localStorageKey: string) {
+
+    }
+    add(item: T): void {
+        window.localStorage.setItem(this.localStorageKey, JSON.stringify(item));
+    }
+    get(): T | null {
+        const data = window.localStorage.getItem(this.localStorageKey)
+        return data ? JSON.parse(data) as T : null;
+    }
+
+}
+
 const user1: User1 = { name1: 'joe' }
 const user: User = { name: 'user1' }
-const db = new LocalDB<User>("test");
+const db = new DB<User>("test");
 db.add(user)
 const test = () => db.get()
 
