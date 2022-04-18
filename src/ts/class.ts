@@ -48,7 +48,19 @@ const user1: User1 = { name1: 'joe' }
 const user: User = { name: 'user1' }
 const db = new DB<User>("test");
 db.add(user)
-const test = () => db.get()
+
+
+
+const test = () => {
+    let isDone: boolean = false;
+    isDone = true;
+    console.log(typeof isDone);
+
+    let isOk: Boolean = true;
+    let isNotOk: object = new Boolean(true);
+
+    console.log(isNotOk);
+}
 
 
 export default test;
