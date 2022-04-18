@@ -7,6 +7,7 @@ import CH4 from './CH4';
 import CH5, { CH5_Friend } from './CH5';
 
 import Keyframe from './Keyframe';
+import Review from './Review';
 import Spinner from './Spinner';
 import Transform from './Transform';
 import Transition from './Transition';
@@ -15,7 +16,8 @@ import WebAnimations from './WebAnimations';
 function App() {
   return (
     <div className="App">
-      <CH5 />
+      <Review></Review>
+      {/* <CH5 /> */}
       {/* <CH5_Friend></CH5_Friend> */}
     </div>
   );
