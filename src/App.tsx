@@ -16,7 +16,7 @@ import WebAnimations from './WebAnimations';
 function App() {
   return (
     <div className="App">
-      <Review></Review>
+      {/* <Review></Review> */}
       {/* <CH5 /> */}
       {/* <CH5_Friend></CH5_Friend> */}
     </div>
