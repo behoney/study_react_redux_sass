@@ -41,7 +41,6 @@ class DB<T extends (User | string | number)>{
         const data = window.localStorage.getItem(this.localStorageKey)
         return data ? JSON.parse(data) as T : null;
     }
-
 }
 
 const user1: User1 = { name1: 'joe' }
@@ -51,16 +50,24 @@ db.add(user)
 
 
 
+declare const maybe: unknown;
+declare let a: string | number;
+type Indexable<T>
+    = T extends string ?
+    T & { [index: string]: any }
+    : never;
 const test = () => {
-    let isDone: boolean = false;
-    isDone = true;
-    console.log(typeof isDone);
 
-    let isOk: Boolean = true;
-    let isNotOk: object = new Boolean(true);
+    if (typeof a !== 'string') {
+        a;
+    }
+    else {
+        a
+    }
 
-    console.log(isNotOk);
+    a
 }
+
 
 
 export default test;
