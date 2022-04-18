@@ -20,3 +20,12 @@ Fastcampus --> 한 번에 끝내는 React의 모든 것 초격차 패키지 Onli
 
 
 > after | before ::
+
+
+> Review
+> 1. redux
+> 2. react-query
+> 4. antd
+> 7. sass
+> 8. date-fns
+> 9. memoization
