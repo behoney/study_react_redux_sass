@@ -49,24 +49,66 @@ const db = new DB<User>("test");
 db.add(user)
 
 
+type PersonID = string & { readonly brand: unique symbol };
 
-declare const maybe: unknown;
-declare let a: string | number;
-type Indexable<T>
-    = T extends string ?
-    T & { [index: string]: any }
-    : never;
-const test = () => {
-
-    if (typeof a !== 'string') {
-        a;
-    }
-    else {
-        a
-    }
-
-    a
+function PersonID(id: string): PersonID {
+    return id as PersonID
 }
+
+function getPersonById(id: PersonID) { }
+
+
+interface Person1 {
+    name: string,
+    age: number
+};
+
+interface Person2 {
+    name: string,
+    age?: number
+};
+
+interface Person3 {
+    [index: string]: number,
+};
+function hello3(p: Person3): void {
+    console.log(p.name, p.age, p.sisters);
+
+}
+// const p31: Person3 = { name: "mark", age: 12, sisters: ["hi"] }
+
+function hello1(p: Person1): void {
+    console.log(p.name, p.age);
+}
+function hello2(p: Person2): void {
+    console.log(p.name, p.age);
+}
+
+
+interface Person4 {
+    name: string;
+    age: number;
+    hello(): void;
+}
+
+const p41: Person4 = {
+    name: 'hi',
+    age: 41,
+    hello: function () {
+        console.log(this.name, this.age);
+    }
+}
+
+
+
+const test = () => {
+    // p41.hello();
+    // hello3({ name: "joe" })
+    // hello3(p31)
+    // console.log(getPersonById('123123'));
+    // console.log(PersonID('123123'));
+}
+
 
 
 
