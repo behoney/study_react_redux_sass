@@ -99,17 +99,70 @@ const p41: Person4 = {
     }
 }
 
+interface IPerson1 {
+    name: string;
+    age?: number;
+    hello(): void;
+}
 
+class Person implements IPerson1 {
+    constructor(name: string) {
+        this.name = name;
+        this.age = 0
+    }
+    name: string;
+    age?: number | undefined;
+    hello(): void {
+        console.log(this.name, this.age, "hello func from Person");
+    }
+}
 
-const test = () => {
-    // p41.hello();
-    // hello3({ name: "joe" })
-    // hello3(p31)
-    // console.log(getPersonById('123123'));
-    // console.log(PersonID('123123'));
+interface IPerson2 {
+    name: string;
+    age?: number;
+}
+
+interface IKorean extends IPerson2 {
+    city: string;
+}
+
+const k: IKorean = {
+    name: "이용재",
+    city: "서울",
+    age: 100
+}
+
+interface HelloPerson {
+    (name: string, age?: number): void
+}
+
+const helloPerson: HelloPerson = (name: string, age?: number) => {
+    console.log(`helloPerson ${name + age?.toString()}`);
 }
 
 
+interface IPerson8 {
+    name: string;
+    age: number;
+    readonly gender: string;
+}
+
+const p81: IPerson8 = {
+    name: "hi",
+    age: 192,
+    gender: "male"
+}
+
+const test = () => {
+    helloPerson("hhihi", 123);
+}
+
+type PersonList = string[];
+interface IPersonList {
+    [index: number]: string;
+}
+
+type person__ = IPerson1 & IPerson2;
 
 
 export default test;
