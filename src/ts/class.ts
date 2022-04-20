@@ -12,11 +12,24 @@ const helloFunctionGeneric2: HelloFunctionGeneric2 = <T>(msg: T): T => {
     return msg;
 }
 
-const test = () => {
-    console.log(
 
-        helloFunctionGeneric1(1)
-    );
+class Person<T, K> {
+    protected _name: T;
+    protected _age: K;
+
+    constructor(name: T, age: K) {
+        this._name = name;
+        this._age = age;
+
+    }
+
+
+}
+const test = () => {
+    const person = new Person<string, number>("hi", 1);
+    console.log(person);
+
+
 }
 
 export default test;
