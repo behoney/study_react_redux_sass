@@ -25,10 +25,19 @@ class Person<T, K> {
 
 
 }
-const test = () => {
-    const person = new Person<string, number>("hi", 1);
-    console.log(person);
 
+class PersonExtends<T extends string | number> {
+    private _name: T;
+
+    constructor(name: T) {
+        this._name = name;
+    }
+}
+
+const test = () => {
+    const person = new PersonExtends("mark")
+    const person1 = new PersonExtends(1)
+    const person2 = new PersonExtends(false)
 
 }
 
