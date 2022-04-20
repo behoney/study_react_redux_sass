@@ -1,15 +1,33 @@
-class Person {
-    name: string;
+class Student {
+    [index: string]: string;
+    public static CITY: string = "seoul";
 
-    constructor(name: string) {
-        this.name = name;
+    static hello(): void {
+        console.log("hello there from Student", Student.CITY);
+    };
+    static change(): void {
+        console.log(Student.CITY);
     }
 }
 
+const test = async () => {
+    const a = new Student();
+    a.mark = "male"
+    a.jade = "male"
+    console.log(a)
 
-const test = () => {
-    const person = new Person("Mark");
-    console.log(person)
+    const b = new Student();
+    b.chole = 'female'
+    b.alex = 'male'
+    b.anna = 'female'
+    console.log(b);
+
+    Student.hello();
+
+    console.log(Student.CITY, b.CITY);
+    Student.CITY = "100";
+
+    console.log(Student.CITY, b.CITY);
 
 
 }
