@@ -1,38 +1,43 @@
+class Parent {
+    constructor(protected _name: string, private _age: number) {
 
-class ClassName {
-    private static instance: ClassName | null = null
-    public static getInstance(): ClassName {
-        if (ClassName.instance === null) {
-            ClassName.instance = new ClassName();
-        }
-        return ClassName.instance;
+    }
+    public print(): void {
+        console.log(this._name, this._age);
+
     }
 
-    _sum: number = 0;
-    add() {
-        this._sum++;
-    }
-    get sum() {
-        return this._sum
-    }
-
-    private constructor() {
-
+    protected printName(): void {
+        console.log(this._name, this._age);
     }
 }
 
-const test = async () => {
+class Child extends Parent {
 
-    const a = ClassName.getInstance();
-    const b = ClassName.getInstance();
 
-    console.log(a === b);
-    a.add();
-    b.add();
-    console.log(a.sum);
-    a.add();
-    b.add();
-    console.log(b.sum);
+    public gender: string = "male";
+
+    constructor(age: number) {
+        super("child name", age);
+        this.printName();
+    }
+
+    print() {
+        super.print();
+        console.log(this.gender);
+
+    }
+
+}
+
+
+const test = () => {
+    const parent = new Parent("p", 1);
+    parent.print();
+
+    const c = new Child(2);
+    c.print();
+
 
 
 }
