@@ -7,6 +7,15 @@ class ClassName {
         }
         return ClassName.instance;
     }
+
+    _sum: number = 0;
+    add() {
+        this._sum++;
+    }
+    get sum() {
+        return this._sum
+    }
+
     private constructor() {
 
     }
@@ -18,6 +27,12 @@ const test = async () => {
     const b = ClassName.getInstance();
 
     console.log(a === b);
+    a.add();
+    b.add();
+    console.log(a.sum);
+    a.add();
+    b.add();
+    console.log(b.sum);
 
 
 }
