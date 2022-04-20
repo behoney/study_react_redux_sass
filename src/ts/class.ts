@@ -105,17 +105,17 @@ interface IPerson1 {
     hello(): void;
 }
 
-class Person implements IPerson1 {
-    constructor(name: string) {
-        this.name = name;
-        this.age = 0
-    }
-    name: string;
-    age?: number | undefined;
-    hello(): void {
-        console.log(this.name, this.age, "hello func from Person");
-    }
-}
+// class Person implements IPerson1 {
+//     constructor(name: string) {
+//         this.name = name;
+//         this.age = 0
+//     }
+//     name: string;
+//     age?: number | undefined;
+//     hello(): void {
+//         console.log(this.name, this.age, "hello func from Person");
+//     }
+// }
 
 interface IPerson2 {
     name: string;
@@ -153,8 +153,57 @@ const p81: IPerson8 = {
     gender: "male"
 }
 
+interface PersonInterface {
+    _name: string,
+    _id: number,
+    toString(): string
+}
+
+class Person implements PersonInterface {
+    _name: string;
+    _id: number;
+    public get name(): string {
+        console.log("[called] public get name() ");
+        return this._name;
+    }
+    public set name(value: string | string[]) {
+        console.log("[called] public set name() ", value);
+        if (typeof value === 'string')
+            this._name = value;
+        else
+            this._name = value.join('');
+    }
+    public get id(): number {
+        console.log("[called] public get id() ");
+        return this._id;
+    }
+    public set id(value: number) {
+        console.log("[called] public set id() ", value);
+        this._id = value;
+    }
+    constructor(name: string, id: number) {
+        this._name = name;
+        this._id = id;
+    }
+    toString(): string {
+        return `this person is \`${this._name}\` and id is \`${this._id}\``
+    }
+    // setNew(): void {
+    //     this._name = "new name for this"
+    // }
+}
+
 const test = () => {
-    helloPerson("hhihi", 123);
+    const person1 = new Person("person1", 1)
+    console.log(person1.toString());
+    // person1.setNew()
+    person1.id = 100;
+    person1.name = `100`;
+
+    person1._id = 0;
+    person1._name = `-`;
+
+    console.log(person1.toString(), person1.name, person1.id);
 }
 
 type PersonList = string[];
