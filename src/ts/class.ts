@@ -34,10 +34,30 @@ class PersonExtends<T extends string | number> {
     }
 }
 
+interface IPerson {
+    name: string;
+    age: number;
+}
+
+function getProp<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key]
+}
+
+function setProp<T, K extends keyof T>(obj: T, key: K, value: T[K]): void {
+    obj[key] = value
+}
+
 const test = () => {
-    const person = new PersonExtends("mark")
-    const person1 = new PersonExtends(1)
-    const person2 = new PersonExtends(false)
+
+    const person: IPerson = {
+        name: "mark",
+        age: 19,
+    }
+
+
+    console.log(person, getProp(person, 'name'));
+    setProp(person, "name", "123");
+    console.log(person, getProp(person, 'name'));
 
 }
 
