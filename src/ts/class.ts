@@ -1,33 +1,23 @@
-class Student {
-    [index: string]: string;
-    public static CITY: string = "seoul";
 
-    static hello(): void {
-        console.log("hello there from Student", Student.CITY);
-    };
-    static change(): void {
-        console.log(Student.CITY);
+class ClassName {
+    private static instance: ClassName | null = null
+    public static getInstance(): ClassName {
+        if (ClassName.instance === null) {
+            ClassName.instance = new ClassName();
+        }
+        return ClassName.instance;
+    }
+    private constructor() {
+
     }
 }
 
 const test = async () => {
-    const a = new Student();
-    a.mark = "male"
-    a.jade = "male"
-    console.log(a)
 
-    const b = new Student();
-    b.chole = 'female'
-    b.alex = 'male'
-    b.anna = 'female'
-    console.log(b);
+    const a = ClassName.getInstance();
+    const b = ClassName.getInstance();
 
-    Student.hello();
-
-    console.log(Student.CITY, b.CITY);
-    Student.CITY = "100";
-
-    console.log(Student.CITY, b.CITY);
+    console.log(a === b);
 
 
 }
