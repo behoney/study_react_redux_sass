@@ -162,23 +162,23 @@ interface PersonInterface {
 class Person implements PersonInterface {
     _name: string;
     _id: number;
-    public get name(): string {
-        console.log("[called] public get name() ");
+    private get name(): string {
+        console.log("[called] private get name() ");
         return this._name;
     }
-    public set name(value: string | string[]) {
-        console.log("[called] public set name() ", value);
+    private set name(value: string | string[]) {
+        console.log("[called] private set name() ", value);
         if (typeof value === 'string')
             this._name = value;
         else
             this._name = value.join('');
     }
-    public get id(): number {
-        console.log("[called] public get id() ");
+    private get id(): number {
+        console.log("[called] private get id() ");
         return this._id;
     }
-    public set id(value: number) {
-        console.log("[called] public set id() ", value);
+    private set id(value: number) {
+        console.log("[called] private set id() ", value);
         this._id = value;
     }
     constructor(name: string, id: number) {
@@ -187,6 +187,11 @@ class Person implements PersonInterface {
     }
     toString(): string {
         return `this person is \`${this._name}\` and id is \`${this._id}\``
+    }
+    setNull(): void {
+        this.name = '';
+        this.id = -Infinity;
+
     }
     // setNew(): void {
     //     this._name = "new name for this"
@@ -197,13 +202,15 @@ const test = () => {
     const person1 = new Person("person1", 1)
     console.log(person1.toString());
     // person1.setNew()
-    person1.id = 100;
-    person1.name = `100`;
+    // person1.id = 100;
+    // person1.name = `100`;
 
     person1._id = 0;
     person1._name = `-`;
 
-    console.log(person1.toString(), person1.name, person1.id);
+    // console.log(person1.toString(), person1.name, person1.id);
+    person1.setNull();
+    console.log(person1.toString());
 }
 
 type PersonList = string[];
