@@ -1,22 +1,32 @@
-abstract class AbsPerson {
-    protected _name: string = "mark";
-
-    abstract setName(name: string): void;
-
+function helloString(msg: string) {
+    return msg;
 }
-class Person extends AbsPerson {
-    setName(name: string): void {
-        this._name = name;
-    }
 
+function helloNumber(msg: number) {
+    return msg;
 }
+
+function helloGeneric<T>(msg: T) {
+    return msg;
+}
+
+function genericCompare<T, U>(a: T, b: U): boolean {
+    return typeof a === typeof b
+}
+
 const test = () => {
+    console.log(
+        helloString("a"),
+        helloNumber(1),
+        helloGeneric(1),
+        genericCompare(1, '1'),
+        genericCompare(1, 2222),
+        genericCompare(1, {}),
+        genericCompare(1, Infinity),
+        genericCompare(NaN, '1')
+    );
 
-    const a = new Person();
-    console.log(a);
-    a.setName("hi");
-    console.log(a);
-    
+
 }
 
 export default test;
